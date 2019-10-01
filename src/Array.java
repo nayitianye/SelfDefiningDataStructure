@@ -1,7 +1,3 @@
-import org.omg.CORBA.Object;
-
-import java.util.ArrayList;
-
 /**
  * @author yyb
  * @DataTime 2019/9/29
@@ -101,6 +97,22 @@ public class Array <E>{
             throw  new IllegalArgumentException("Get failed. Index is illegal.");
         }
         return data[index];
+    }
+
+    /**
+     * 获取数组最后位置的值
+     * @return
+     */
+    public E getLast(){
+        return get(size-1);
+    }
+
+    /**
+     * 获取数组第一位的值
+     * @return
+     */
+    public E getFirst(){
+        return get(0);
     }
 
     /**
@@ -228,13 +240,13 @@ public class Array <E>{
         array.addFirst(-1);
         System.out.println(array);
 
-//        array.remove(2);
-//        System.out.println(array);
-//
-//        array.removeElement(4);
-//        System.out.println(array);
-//
-//        array.removeFirst();
-//        System.out.println(array);
+        array.remove(2);
+        System.out.println(array);
+
+        array.removeElement(4);
+        System.out.println(array);
+
+        array.removeFirst();
+        System.out.println(array);
     }
 }
