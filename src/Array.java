@@ -1,7 +1,7 @@
 /**
  * @author yyb
- * @DataTime 2019/9/29
- * 自定义动态数组
+ * @datetime 2019/9/29
+ * @description 自定义动态数组
  */
 public class Array <E>{
     private E[] data;

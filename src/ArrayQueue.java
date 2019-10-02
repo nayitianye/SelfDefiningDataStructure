@@ -1,16 +1,17 @@
 /**
  * @author yyb
  * @datetime 2019/10/1
- * @description 基于前面的自定义动态数组创建自定义的栈
+ * @description 基于前面的自定义动态数组创建自定义的队列
  * @param <E>
  */
-public class ArrayStack<E> implements Stack<E> {
-    Array<E> array;
+public class ArrayQueue<E> implements Queue<E>{
+    private Array<E> array;
 
-    public ArrayStack(int capacity){
+    public ArrayQueue(int capacity){
         array=new Array<>(capacity);
     }
-    public ArrayStack(){
+
+    public ArrayQueue(){
         array=new Array<>();
     }
 
@@ -29,42 +30,45 @@ public class ArrayStack<E> implements Stack<E> {
     }
 
     @Override
-    public void push(E e) {
+    public void enqueue(E e){
         array.addLast(e);
     }
 
     @Override
-    public E pop() {
-        return array.removeLast();
+    public E dequeue() {
+        return array.removeFirst();
     }
 
     @Override
-    public E peek() {
-        return array.getLast();
+    public E getFront() {
+        return array.getFirst();
     }
 
     @Override
     public String toString() {
         StringBuilder res=new StringBuilder();
-        res.append("Stack: ");
-        res.append("[");
+        res.append("Queue: ");
+        res.append("front [");
         for(int i=0;i<array.getSize();i++){
             res.append(array.get(i));
             if(i!=array.getSize()-1){
                 res.append(", ");
             }
         }
-        res.append("] top");
+        res.append("] tail");
         return res.toString();
     }
 
     public static void main(String[] args) {
-        ArrayStack<Integer> stack=new ArrayStack<>();
-        for(int i=0;i<5;i++){
-            stack.push(i);
-            System.out.println(stack);
+        ArrayQueue<Integer> queue=new ArrayQueue<>();
+        for(int i=0;i<10;i++){
+            queue.enqueue(i);
+            System.out.println(queue);
+            if(i%3==2){
+                queue.dequeue();
+                System.out.println(queue);
+            }
         }
-        stack.pop();
-        System.out.println(stack);
+
     }
 }

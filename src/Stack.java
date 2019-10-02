@@ -1,7 +1,7 @@
 /**
  * @author yyb
  * @datetime 2019/10/1
- * 自定义实现栈的接口
+ * @description 自定义实现栈的接口
  * @param <E>
  */
 public interface Stack<E>{
