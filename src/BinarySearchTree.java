@@ -25,7 +25,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         size=0;
     }
 
-    private int size(){
+    public int size(){
         return size;
     }
 
@@ -373,7 +373,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
             }
         }
     }
-    
+    //floor ceil  select rank (Node rize)  depth   重复元素  count
     public static void main(String[] args) {
         BinarySearchTree<Integer> res=new BinarySearchTree<>();
         int[] nums={1,2,5,4,6,8,6,4};

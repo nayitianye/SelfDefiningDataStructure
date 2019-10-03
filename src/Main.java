@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Main {
@@ -26,7 +27,49 @@ public class Main {
         long endTime=System.nanoTime();
         return (endTime-startTime)/1000000000;
     }
+
+    private static double testSet(Set<String> set,String filename){
+        long startTime=System.nanoTime();
+        System.out.println(filename);
+        ArrayList<String> words=new ArrayList<>();
+        if(FileOperation.readFile(filename,words)){
+            System.out.println("Total words: "+words.size());
+            for(String word:words){
+                set.add(word);
+            }
+            System.out.println("Total different words: "+set.getSize());
+        }
+        long endTime=System.nanoTime();
+        return (endTime-startTime)/1000000000;
+    }
+
+    private static double testMap(Map<String,Integer> map,String filename){
+        long startTime = System.nanoTime();
+
+        System.out.println(filename);
+        ArrayList<String> words = new ArrayList<>();
+        if(FileOperation.readFile(filename, words)) {
+            System.out.println("Total words: " + words.size());
+
+            for (String word : words){
+                if(map.contains(word))
+                    map.set(word, map.get(word) + 1);
+                else
+                    map.add(word, 1);
+            }
+
+            System.out.println("Total different words: " + map.getSize());
+            System.out.println("Frequency of PRIDE: " + map.get("pride"));
+            System.out.println("Frequency of PREJUDICE: " + map.get("prejudice"));
+        }
+
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime) / 1000000000.0;
+    }
+
     public static void main(String[] args) {
+
         /*int opCount=30000000;
         ArrayQueue<Integer> arrayQueue=new ArrayQueue<>();
         double time1=testQueue(arrayQueue,opCount);
@@ -38,11 +81,33 @@ public class Main {
         double time3=testQueue(linkedListQueue,opCount);
         System.out.println("LinkedListQueue, time: "+time3+" S");*/
        /* ArrayStack<Integer> arrayStack=new ArrayStack<>();
-        double time3=testStack(arrayStack,opCount);
-        System.out.println("ArrayStack, time: "+time3+" S");
+        double time4=testStack(arrayStack,opCount);
+        System.out.println("ArrayStack, time: "+time4+" S");
 
         LinkedListStack<Integer> linkedListStack=new LinkedListStack<>();
-        double time4=testStack(linkedListStack,opCount);
-        System.out.println("LinkedListStack, time: "+time4+" S");*/
+        double time5=testStack(linkedListStack,opCount);
+        System.out.println("LinkedListStack, time: "+time5+" S");*/
+
+       /* String  filename="pride-and-prejudice.txt";
+        BinarySearchTreeSet<String> bstSet=new BinarySearchTreeSet<>();
+        double time6=testSet(bstSet,filename);
+        System.out.println("BST Set: "+time6+" s");
+        System.out.println();
+
+        LinkedListSet<String> linkedListSet=new LinkedListSet<>();
+        double time7=testSet(linkedListSet,filename);
+        System.out.println("LinkedListSet: "+time7+" s");*/
+
+        String filename = "pride-and-prejudice.txt";
+
+        BinarySearchTreeMap<String, Integer> bstMap = new BinarySearchTreeMap<>();
+        double time1 = testMap(bstMap, filename);
+        System.out.println("BST Map: " + time1 + " s");
+
+        System.out.println();
+
+        LinkedListMap<String, Integer> linkedListMap = new LinkedListMap<>();
+        double time2 = testMap(linkedListMap, filename);
+        System.out.println("Linked List Map: " + time2 + " s");
     }
 }
