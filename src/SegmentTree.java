@@ -1,7 +1,7 @@
 /**
  * @author yyb
  * @DataTime 2019/9/29
- * 自定义线段树的实现
+ * @description 定义线段树的实现
  */
 public class SegmentTree<E> {
     private E[] data;
