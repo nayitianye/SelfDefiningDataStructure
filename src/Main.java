@@ -93,7 +93,6 @@ public class Main {
         return (endTime - startTime) / 1000000000.0;
     }
     public static void main(String[] args) {
-
         /*int opCount=30000000;
         ArrayQueue<Integer> arrayQueue=new ArrayQueue<>();
         double time1=testQueue(arrayQueue,opCount);
@@ -104,15 +103,14 @@ public class Main {
         LinkedListQueue<Integer> linkedListQueue=new LinkedListQueue<>();
         double time3=testQueue(linkedListQueue,opCount);
         System.out.println("LinkedListQueue, time: "+time3+" S");*/
-       /* ArrayStack<Integer> arrayStack=new ArrayStack<>();
+        /* ArrayStack<Integer> arrayStack=new ArrayStack<>();
         double time4=testStack(arrayStack,opCount);
         System.out.println("ArrayStack, time: "+time4+" S");
 
         LinkedListStack<Integer> linkedListStack=new LinkedListStack<>();
         double time5=testStack(linkedListStack,opCount);
         System.out.println("LinkedListStack, time: "+time5+" S");*/
-
-       /* String  filename="pride-and-prejudice.txt";
+        /* String  filename="pride-and-prejudice.txt";
         BinarySearchTreeSet<String> bstSet=new BinarySearchTreeSet<>();
         double time6=testSet(bstSet,filename);
         System.out.println("BST Set: "+time6+" s");
@@ -121,7 +119,6 @@ public class Main {
         LinkedListSet<String> linkedListSet=new LinkedListSet<>();
         double time7=testSet(linkedListSet,filename);
         System.out.println("LinkedListSet: "+time7+" s");*/
-
         /*String filename = "pride-and-prejudice.txt";
 
         BinarySearchTreeMap<String, Integer> bstMap = new BinarySearchTreeMap<>();
@@ -133,8 +130,7 @@ public class Main {
         LinkedListMap<String, Integer> linkedListMap = new LinkedListMap<>();
         double time2 = testMap(linkedListMap, filename);
         System.out.println("Linked List Map: " + time2 + " s");*/
-
-        int n = 1000000;
+        /* int n = 1000000;
 
         Random random = new Random();
         Integer[] testData = new Integer[n];
@@ -145,6 +141,8 @@ public class Main {
         System.out.println("Without heapify: " + time1 + " s");
 
         double time2 = testHeap(testData, true);
-        System.out.println("With heapify: " + time2 + " s");
+        System.out.println("With heapify: " + time2 + " s");*/
+
+
     }
 }
