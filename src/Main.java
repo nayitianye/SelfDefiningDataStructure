@@ -68,6 +68,24 @@ public class Main {
         return (endTime - startTime) / 1000000000.0;
     }
 
+    private static double testUnionFind(UnionFind uf,int m){
+        int size = uf.getSize();
+        Random random = new Random();
+        long startTime = System.nanoTime();
+        for(int i = 0 ; i < m ; i ++){
+            int a = random.nextInt(size);
+            int b = random.nextInt(size);
+            uf.unionElements(a, b);
+        }
+        for(int i = 0 ; i < m ; i ++){
+            int a = random.nextInt(size);
+            int b = random.nextInt(size);
+            uf.isConnected(a, b);
+        }
+        long endTime = System.nanoTime();
+        return (endTime - startTime) / 1000000000.0;
+    }
+
     private static double testHeap(Integer[] testData, boolean isHeapify){
         long startTime = System.nanoTime();
         MaxHeap<Integer> maxHeap;
@@ -92,6 +110,7 @@ public class Main {
 
         return (endTime - startTime) / 1000000000.0;
     }
+
     public static void main(String[] args) {
         /*int opCount=30000000;
         ArrayQueue<Integer> arrayQueue=new ArrayQueue<>();
@@ -142,7 +161,17 @@ public class Main {
 
         double time2 = testHeap(testData, true);
         System.out.println("With heapify: " + time2 + " s");*/
-
-
+        int size = 10000000;
+        int m = 10000000;
+       /* UnionFind_QuickFind uf1 = new UnionFind_QuickFind(size);
+        System.out.println("UnionFind1 : " + testUnionFind(uf1, m) + " s");
+        UnionFind_QuickUnion uf2 = new UnionFind_QuickUnion(size);
+        System.out.println("UnionFind2 : " + testUnionFind(uf2, m) + " s");*/
+        UnionFind_QuickUnionSize uf3=new UnionFind_QuickUnionSize(size);
+        System.out.println("UnionFind3 : " + testUnionFind(uf3, m) + " s");
+        UnionFind_QuickUnionRank uf4=new UnionFind_QuickUnionRank(size);
+        System.out.println("UnionFind4 : " + testUnionFind(uf4, m) + " s");
+        UnionFind_QuickUnionPathCompression uf5=new UnionFind_QuickUnionPathCompression(size);
+        System.out.println("UnionFind4 : " + testUnionFind(uf5, m) + " s");
     }
 }
